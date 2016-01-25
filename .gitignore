@@ -1,0 +1,5 @@
+credentials.yml
+Vagrantfile
+.vagrant/
+*.csv
+*.swp
