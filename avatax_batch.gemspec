@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "avatax_batch"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
   s.date = "2016-02-01"
   s.summary = "Library for accessing Avalara's Batch services."
   s.authors = ["Heather Petrow"]
