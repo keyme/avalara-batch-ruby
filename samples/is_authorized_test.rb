@@ -17,8 +17,7 @@ is_authorized_request = {
 is_authorized_result = batch_svc.is_authorized(is_authorized_request)
 
 puts "IsAuthorizedTest ResultCode: #{is_authorized_result[:result_code]}"
-if is_authorized_result[:result_code] == "Error"
-  is_authorized_result[:messages][:message].each { |k,v| puts "#{k}: #{v}" }
-elsif is_authorized_result[:fault]
-  is_authorized_result[:fault].each { |k,v| puts "#{k.to_s}: #{v}" }
+
+if is_authorized_result[:messages]
+  is_authorized_result[:messages].each { |message| puts message }
 end

@@ -17,8 +17,7 @@ batch_fetch_request = {
 batch_fetch_result = batch_svc.batch_fetch(batch_fetch_request)
 
 puts "BatchFetch ResultCode: #{batch_fetch_result[:result_code]}"
-if batch_fetch_result[:result_code] == "Error"
-  batch_fetch_result[:messages][:message].each { |k,v| puts "#{k}: #{v}" }
-elsif batch_fetch_result[:fault]
-  batch_fetch_result[:fault].each { |k,v| puts "#{k}: #{v}" }
+
+if batch_fetch_result[:messages]
+  batch_fetch_result[:messages].each { |message| puts message }
 end
