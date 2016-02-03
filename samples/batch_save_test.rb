@@ -30,8 +30,7 @@ batch_save_request = {
 batch_save_result = batch_svc.batch_save(batch_save_request)
 
 puts "BatchSaveTest ResultCode: #{batch_save_result[:result_code]}"
-if batch_save_result[:result_code] == "Error"
-  batch_save_result[:messages][:message].each { |k,v| puts "#{k}: #{v}" }
-elsif batch_save_result[:fault]
-  batch_save_result[:fault].each { |k,v| puts "#{k}: #{v}" }
+
+if batch_save_result[:messages]
+  batch_save_result[:messages].each { |message| puts message }
 end
