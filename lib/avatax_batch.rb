@@ -83,9 +83,23 @@ module AvaTax
     end
 
     def batch_fetch(message = {})
-      message = { :Filters => message[:filters] }
+      message = {
+        :FetchRequest => {
+          :Filters => message[:filters]
+        }
+      }
 
       call_service("batch_fetch", message)
+    end
+
+    def batch_file_fetch(message = {})
+      message = {
+        :FetchRequest => {
+          :Filters => message[:filters] 
+        }
+      }
+
+      call_service("batch_file_fetch", message)
     end
 
     def batch_save(message = {})
@@ -115,6 +129,7 @@ module AvaTax
     def call_service(service, message)
       begin
         response = @client.call(service.to_sym, :soap_header => @soap_header, :message => message).to_hash
+
         return response["#{service}_response".to_sym]["#{service}_result".to_sym]
       rescue Savon::Error => error
         return format_error(error)
