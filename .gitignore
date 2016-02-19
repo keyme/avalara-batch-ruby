@@ -1,5 +1,5 @@
-credentials.yml
 Vagrantfile
 .vagrant/
+*.yml
 *.csv
 *.swp

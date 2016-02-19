@@ -85,6 +85,7 @@ module AvaTax
     def batch_fetch(message = {})
       message = {
         :FetchRequest => {
+          :Fields => message[:fields],
           :Filters => message[:filters]
         }
       }
@@ -95,6 +96,7 @@ module AvaTax
     def batch_file_fetch(message = {})
       message = {
         :FetchRequest => {
+          :Fields => message[:fields],
           :Filters => message[:filters] 
         }
       }
